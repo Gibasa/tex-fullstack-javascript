@@ -11,11 +11,12 @@
   </body>
   <script>
     let ultimaLista = [0, 0, 0];
+    let porta = 0;
+    let count = 0;
+    let lista = [0, 0, 0];
+    let check = false;
+
     function listaRandom() {
-      let lista = [0, 0, 0];
-      let check = false;
-      let count = 0;
-      let porta = 0;
       for (let index = 0; index < lista.length; index++) {
         lista[index] = parseInt(Math.random(0) * 3) + 1;
       }
@@ -28,25 +29,30 @@
           if (indexa == !indexb) {
             if (lista[indexa] === lista[indexb]) {
               check = true;
-              porta = 1
-              count++;
+              porta++;
             }
           }
         }
       }
 
-      if (lista[0] === ultimaLista[0] && lista[1] === ultimaLista[1] && lista[2] === ultimaLista[2]){
-        porta = 2
+      if (
+        lista[0] === ultimaLista[0] &&
+        lista[1] === ultimaLista[1] &&
+        lista[2] === ultimaLista[2]
+      ) {
+        porta++;
       }
-      
-      ultimaLista = lista
+      count++;
+      ultimaLista = lista;
+      lista = [0, 0, 0]
+    }
 
-      if (check === true) {
-        console.log(`Porta ${porta} aberta. Os numeros se repetem ${count} vezes.`);
-        check = false;
-      } else {
-        console.log("Tente de novo");
+    function geradorListas() {
+      while (porta < 3) {
+        listaRandom();
       }
+
+      console.log(`Fim do jogo, as porta foram abertas 3 vezes. A função rodou ${count} vezes.`);
     }
   </script>
 </html>

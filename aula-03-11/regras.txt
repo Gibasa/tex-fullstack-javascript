@@ -17,3 +17,9 @@
 -- Se os valores forem iguais: escreva 'Porta (x)' : aberta
 -- Se os valores forem diferentes: 
         escreva 'Tente de novo' (Com a exceção do resultado ser de números iguais)
+        
+As portas serão abertas quando:
+    - os números do array forem iguais 
+    - a sequência de números do array for igual a sequência de númeroso do último sorteio
+
+Fim do jogo acontece quando a terceira porta for aberta.
